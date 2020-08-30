@@ -1,0 +1,45 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_1461390_Project"
+             xmlns:UserControls="clr-namespace:WPF_1461390_Project.UserControls" x:Class="WPF_1461390_Project.UCProduct"
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
+    <StackPanel Orientation="Vertical">
+        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <Label Height="30" FontSize="16" Margin="5">Nhập từ khóa lọc dữ liệu:</Label>
+            <TextBox Name="txtKeyword" Width="350" Height="30" Margin="5" FontSize="16"  TextChanged="txtKeyword_TextChanged"></TextBox>
+        </WrapPanel>
+        <Grid >
+            <DataGrid x:Name="dtgProduct" AutoGenerateColumns="False" Margin="5,5,5,5" 
+                      VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" 
+                      FontSize="16">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Mã sản phẩm" Binding="{Binding ProID}" Width="200"/>
+                    <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding ProName}" Width="350"/>
+                    <DataGridTextColumn Header="Giá" Binding="{Binding Price}" Width="150"/>
+                    <DataGridTextColumn Header="Số lượng tồn" Binding="{Binding Quantity}" Width="150"/>
+                    <DataGridTextColumn Header="Mã danh mục" Binding="{Binding CatID}" Width="200"/>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding TinyDes}" Margin="5" />
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+        </Grid>
+        <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+            <Button Content="&lt;" Width="30" Name="btnPreviousPage" Click="btnPreviousPage_Click"></Button>
+            <Label Content="Page 3 of 10" Name="lblPageStatus"></Label>
+            <Button Content="&gt;" Width="30" Name="btnNextPage" Click="btnNextPage_Click"></Button>
+            <Label Content="Items per page:"></Label>
+            <ComboBox Name="cmbItemsPerPage" SelectedIndex="0" SelectionChanged="cmbItemsPerPage_SelectionChanged">
+                <ComboBoxItem Content="5"></ComboBoxItem>
+                <ComboBoxItem Content="10"></ComboBoxItem>
+                <ComboBoxItem Content="20"></ComboBoxItem>
+            </ComboBox>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

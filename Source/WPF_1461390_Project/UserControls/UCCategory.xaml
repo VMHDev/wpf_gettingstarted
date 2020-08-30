@@ -1,0 +1,63 @@
+﻿<UserControl xmlns:UserControls="clr-namespace:WPF_1461390_Project.UserControls"  x:Class="WPF_1461390_Project.UCCategory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_1461390_Project"
+             mc:Ignorable="d"   
+             Name="frmUCCategory"
+             HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+    <StackPanel Orientation="Vertical">
+        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <Label Height="30" FontSize="16" Margin="5">Nhập từ khóa lọc dữ liệu: </Label>
+            <TextBox Name="txtKeyword" Width="350" Height="30" Margin="5" FontSize="16"  TextChanged="txtKeyword_TextChanged"></TextBox>
+        </WrapPanel>
+        <Grid >
+            <DataGrid x:Name="dtgCategory" AutoGenerateColumns="False" Margin="5,5,5,5" 
+                      VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                       FontSize="18">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Mã danh mục" Width="150"  FontSize="16" Binding="{Binding CatID}"/>
+                    <DataGridTextColumn Header="Tên danh mục" Width="200" FontSize="16" Binding="{Binding CatName}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnAdd"  Click="btnAdd_Click" >
+                                    Thêm
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnDel"  Click="btnDel_Click">
+                                    Xóa
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btnEdit"  Click="btnEdit_Click">
+                                    Sửa
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+            <Button Content="&lt;" Width="30" Name="btnPreviousPage" Click="btnPreviousPage_Click"></Button>
+            <Label Content="Page 3 of 10" Name="lblPageStatus"></Label>
+            <Button Content="&gt;" Width="30" Name="btnNextPage" Click="btnNextPage_Click"></Button>
+            <Label Content="Items per page:"></Label>
+            <ComboBox Name="cmbItemsPerPage" SelectedIndex="0" SelectionChanged="cmbItemsPerPage_SelectionChanged">
+                <ComboBoxItem Content="5"></ComboBoxItem>
+                <ComboBoxItem Content="10"></ComboBoxItem>
+            </ComboBox>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

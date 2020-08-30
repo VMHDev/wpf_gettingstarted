@@ -1,0 +1,92 @@
+﻿<Fluent:RibbonWindow xmlns:UserControls="clr-namespace:WPF_1461390_Project.UserControls"  x:Class="WPF_1461390_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_1461390_Project"
+        mc:Ignorable="d"
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+        Title="Quản lý bán hàng"  Height="768" Width="1024" Loaded="RibbonWindow_Loaded">
+    <DockPanel LastChildFill="True">
+        <Fluent:Ribbon DockPanel.Dock="Top">
+            <!--Backstage - Tab ẩn Hệ thống-->
+            <Fluent:Ribbon.Menu>
+                <Fluent:Backstage Header="Hệ thống">
+                    <Fluent:BackstageTabControl>
+                        <Fluent:BackstageTabItem Header="Kết thúc" />
+                        <Fluent:BackstageTabItem Header="Đăng xuất"/>
+                        <Fluent:Button x:Name="btnHelp" Header="Trợ giúp" Click="btnHelp_Click"/>
+                    </Fluent:BackstageTabControl>
+                </Fluent:Backstage>
+            </Fluent:Ribbon.Menu>
+
+            <!--Tabs - Tab Dữ liệu-->
+            <Fluent:RibbonTabItem Header="Dữ liệu">
+                <Fluent:RibbonGroupBox Header="Kho hàng">
+                    <Fluent:Button Name="btnCata" Header="Danh mục" LargeIcon="Icon/32×32/category.png" Click="btnCata_Click">
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Danh mục" Text="Thông tin danh mục sản phẩm "/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Name="btnPro" Header="Sản phẩm" LargeIcon="Icon/32×32/product.png" Click="btnPro_Click">
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Sản phẩm" Text="Thông tin chi tiết sản phâm"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+
+            <!--Tabs - Tab Sản phẩm-->
+            <!--
+            <Fluent:RibbonTabItem Header="Sản phẩm">
+                <Fluent:RibbonGroupBox Header="Quản lý">
+                    <Fluent:Button Header="Thêm" LargeIcon="Icon/32×32/add.png">
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Thêm" Text="Thêm một sản phẩm"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Xóa" LargeIcon="Icon/32×32/delete.png">
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Xóa" Text="Xóa một sản phẩm"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Sửa" LargeIcon="Icon/32×32/edit.png">
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Sửa" Text="Sửa thông tin sản phẩm"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>-->
+
+            <!--Tabs - Tab Chức năng-->
+            <Fluent:RibbonTabItem Header="Chức năng">
+                <Fluent:RibbonGroupBox Header="Reset data from Excell" Width="150">
+                    <Fluent:Button Name="btnImportCat"  Header="Danh mục" LargeIcon="Icon/32×32/import.png" Width="50"  Click="btnImportCat_Click">
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Thêm" Text="Nhập danh sách danh mục từ Excell"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Name="btnImportPro" Header="Sản phẩm" LargeIcon="Icon/32×32/import.png" Width="50" Click="btnImportPro_Click">
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Xóa" Text="Nhập danh sách sản phẩm từ Excell"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                    <Fluent:Button Name="btnImportAll" Header="Tất cả" LargeIcon="Icon/32×32/import.png" Width="50" Click="btnImportAll_Click">
+                        <Fluent:Button.ToolTip>
+                            <Fluent:ScreenTip Title="Xóa" Text="Nhập tất cả dữ liệu từ Excell"/>
+                        </Fluent:Button.ToolTip>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+        </Fluent:Ribbon>
+
+        <Grid>
+            <ContentControl x:Name="contentControl" Grid.Row="1"/>
+            <!--<ContentControl>
+                <UserControls:UCBrowse HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            </ContentControl>
+            <TabControl x:Name="tabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            </TabControl>-->
+        </Grid>
+    </DockPanel>
+</Fluent:RibbonWindow>
